@@ -1,4 +1,5 @@
-connection: "lookerdata"
+connection: "mobi-jm"
+
 # include: "/demo_vitals/*.view.lkml"
 include: "/simplified_views/*.view.lkml"
 include: "/unnested_views/*.view.lkml"

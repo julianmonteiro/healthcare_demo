@@ -37,7 +37,7 @@
     model: healthcare
     explore: observation_vitals
     type: looker_grid
-    fields: [patient.ssn_hashed, observation_vitals.issued_date, observation_vitals.type,
+    fields: [observation_vitals.issued_date, observation_vitals.type,
       observation_vitals.quantity, observation_vitals.measurement_standard_deviation,
       observation_vitals.absolute_standard_deviation]
     filters:

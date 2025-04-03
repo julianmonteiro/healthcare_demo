@@ -13,7 +13,7 @@
     sorts: [encounter.average_los desc]
     limit: 500
     dynamic_fields: [{table_calculation: average_los_hours, label: Average LOS (Hours),
-        expression: "${encounter.average_los}/60", value_format: !!null '', value_format_name: decimal_2,
+        expression: "${encounter.average_los}/60", value_format: '', value_format_name: decimal_2,
         _kind_hint: measure, _type_hint: number}]
     query_timezone: America/Los_Angeles
     custom_color_enabled: true

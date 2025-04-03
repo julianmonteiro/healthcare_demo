@@ -195,26 +195,25 @@ view: patient {
     type: string
     sql: cast(round(rand() * 100000, 0) as string) ;;
   }
-
-  dimension: ssn_hashed {
-    label: "Patient SSN"
-    type: string
-    description: "Only users with sufficient permissions will see this data"
-    sql:
-        CASE
-          WHEN '{{_user_attributes["can_see_sensitive_data"]}}' = 'yes'
-                THEN ${ssn}
-                ELSE concat('###-##-',substr(${ssn},1,4))
-                --ELSE TO_BASE64(SHA1(${ssn}))
-          END ;;
-  }
+  # dimension: ssn_hashed {
+  #   label: "Patient SSN"
+  #   type: string
+  #   description: "Only users with sufficient permissions will see this data"
+  #   sql:
+  #       CASE
+  #         WHEN '{{_user_attributes["can_see_sensitive_data"]}}' = 'yes'
+  #               THEN ${ssn}
+  #               ELSE concat('###-##-',substr(${ssn},1,4))
+  #               --ELSE TO_BASE64(SHA1(${ssn}))
+  #         END ;;
+  # }
 
   #########  Measures  #########
 
   measure: count {
     label: "Number of Patients"
     type: count
-    drill_fields: [id, name, ssn_hashed, age]
+    drill_fields: [id, name, age]
   }
 
   measure: average_age {
